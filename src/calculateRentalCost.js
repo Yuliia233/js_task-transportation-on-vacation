@@ -19,12 +19,12 @@ function calculateRentalCost(days) {
     return basePrice - LONG_TERM_DISCOUNT;
   }
 
-  // Apply standard discount if 3 or more days
-  if (days >= MINIMUM_DISCOUNT_DAYS) {
+  // Apply standard discount if 3 to 6 days
+  if (days >= MINIMUM_DISCOUNT_DAYS && days < LONG_TERM_RENTAL_DAYS) {
     return basePrice - STANDARD_DISCOUNT;
   }
 
-  // Return base price if no discounts apply
+  // Return base price if no discounts apply (less than 3 days)
   return basePrice;
 }
 
